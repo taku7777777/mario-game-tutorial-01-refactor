@@ -19,8 +19,10 @@ module.exports = {
         extensions:['.ts','.js']
     },
     devServer: {
-        // webpack-dev-serverの公開フォルダ
-        contentBase: path.join(__dirname,'dist')
+        // webpack-dev-server v4+ の公開フォルダ指定（旧 contentBase から移行）
+        static: {
+            directory: path.join(__dirname,'dist')
+        }
     },
     // モジュールに適用するルールの設定（ここではローダーの設定を行う事が多い）
     module: {
