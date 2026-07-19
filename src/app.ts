@@ -1,3 +1,4 @@
+// エントリポイント: 更新ループを起動する
 import { Controller } from "./controller";
 
 /**
