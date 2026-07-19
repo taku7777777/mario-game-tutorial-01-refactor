@@ -28,4 +28,11 @@
     this.cnt = this.cnt + 1;
     console.log("start update alert, cnt = " + this.cnt);
   };
+
+  /**
+   * カウンタを初期状態(0)に戻すリセット処理
+   */
+  public reset = (): void => {
+    this.cnt = 0;
+  };
 }
