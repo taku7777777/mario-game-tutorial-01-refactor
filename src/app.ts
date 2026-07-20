@@ -24,6 +24,19 @@ function update() {
 }
 
 /**
+ * キー入力によるジャンプ操作の配線
+ * スペースキー、または上矢印キーでジャンプを開始する。
+ * (接地判定などの実際の可否判定はController/physics側が行う)
+ */
+window.addEventListener("keydown", (event: KeyboardEvent) => {
+  if (event.code === "Space" || event.code === "ArrowUp") {
+    // スペースキーによるスクロール等の既定動作を抑止する
+    event.preventDefault();
+    instance.jump();
+  }
+});
+
+/**
  * 初期ロード時に、更新処理が実行されるようにする
  */
 window.addEventListener("load", update);
