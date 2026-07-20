@@ -3,3 +3,5 @@ git clone後、以下コマンドを実行することで動作確認可能で�
 2. npm run build
 3. npm run start
 4. `http://localhost:8080/` をブラウザで開く
+
+動作確認は npm run build で行えます。
