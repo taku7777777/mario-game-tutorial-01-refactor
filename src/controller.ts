@@ -2,8 +2,9 @@
  * 全体の処理の管理を行うコントローラーのクラス
  */ export class Controller {
   /**
-   * フレーム毎の更新において、状態を保持する必要があるものは、
+   * 固定ステップの更新において、状態を保持する必要があるものは、
    * private変数として宣言する必要がある
+   * ここでは経過した総ステップ数を保持する
    */
   private cnt: number;
 
@@ -21,11 +22,18 @@
   public static createInstance = () => new Controller();
 
   /**
-   * 1フレーム単位で実行される更新処理
+   * 1ステップ(固定タイムステップ)単位で実行される更新処理
+   * フレームレートに依存しないよう、1回の呼び出しで1ステップ分だけ進める
    */
   public update = () => {
-    // ここに更新処理を記載する、暫定的にカウントをconsoleに吐き出す処理を記載
+    // ここに更新処理を記載する、暫定的に経過した総ステップ数を加算する処理を記載
     this.cnt = this.cnt + 1;
-    console.log("start update alert, cnt = " + this.cnt);
   };
+
+  /**
+   * これまでに経過した総ステップ数を取得する
+   */
+  public get stepCount(): number {
+    return this.cnt;
+  }
 }
